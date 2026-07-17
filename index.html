@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic English 850 · 核心单词卡片</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">Basic English<span class="title-accent"> 850</span></h1>
+      <p class="site-sub">Ogden 经典核心词表 · 600 名词 · 150 形容词 · 100 动词</p>
+    </div>
+  </header>
+
+  <div class="controls" id="controls">
+    <div class="control-row">
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="search"
+          class="search-input"
+          placeholder="搜索英文或中文…"
+          autocomplete="off"
+          aria-label="搜索单词"
+        />
+      </div>
+
+      <div class="filter-group" id="filterGroup" role="group" aria-label="分类筛选">
+        <button class="filter-btn is-active" data-filter="all">全部 <span class="count" id="count-all">0</span></button>
+        <button class="filter-btn" data-filter="n.">名词 <span class="count" id="count-n">0</span></button>
+        <button class="filter-btn" data-filter="adj.">形容词 <span class="count" id="count-adj">0</span></button>
+        <button class="filter-btn" data-filter="v.">动词 <span class="count" id="count-v">0</span></button>
+      </div>
+
+      <button class="practice-toggle" id="practiceToggle" aria-pressed="false">
+        <span class="pt-dot"></span> 练习模式
+      </button>
+    </div>
+  </div>
+
+  <!-- 网格视图 -->
+  <main class="grid-view" id="gridView">
+    <div class="card-grid" id="cardGrid"></div>
+    <p class="empty-state" id="emptyState" hidden>没有匹配的单词，换个关键词试试。</p>
+  </main>
+
+  <!-- 练习视图 -->
+  <section class="practice-view" id="practiceView" hidden>
+    <div class="practice-hud">
+      <span class="practice-progress" id="practiceProgress">0 / 0</span>
+      <span class="practice-hint">点击卡片翻面 · 看看你记得多少</span>
+    </div>
+
+    <div class="flashcard-stage">
+      <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="翻转卡片">
+        <div class="flashcard-inner" id="flashcardInner">
+          <div class="flashcard-face flashcard-front">
+            <span class="fc-pos" id="fcPosFront">—</span>
+            <span class="fc-word" id="fcWord">word</span>
+            <span class="fc-phonetic" id="fcPhonetic">/wɜːd/</span>
+            <span class="fc-tap">点击翻面 ↻</span>
+          </div>
+          <div class="flashcard-face flashcard-back">
+            <span class="fc-pos" id="fcPosBack">—</span>
+            <span class="fc-word" id="fcWordBack">word</span>
+            <span class="fc-meaning" id="fcMeaning">释义</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="practice-controls">
+      <button class="pc-btn" id="prevBtn">‹ 上一张</button>
+      <button class="pc-btn pc-primary" id="flipBtn">翻面</button>
+      <button class="pc-btn" id="randomBtn">随机 ⟳</button>
+      <button class="pc-btn" id="nextBtn">下一张 ›</button>
+      <button class="pc-btn pc-exit" id="exitBtn">退出练习</button>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>纯静态单页 · 无外部依赖 · 离线可用</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
